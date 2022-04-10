@@ -1,1 +1,1 @@
-# Calc
+Basic calculator app
