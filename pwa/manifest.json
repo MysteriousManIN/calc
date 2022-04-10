@@ -6,7 +6,7 @@
     "theme_color":"#ebebeb",
     "display":"standalone",
     "orientation":"portrait",
-    "start_url":"https://app.com/calc/",
+    "start_url":"https://mysteriousmanin.github.io/calc/",
     "icons":[
         {
             "src":"144.png",
