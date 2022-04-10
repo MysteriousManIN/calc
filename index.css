@@ -1,0 +1,309 @@
+/* @import "https://fonts.googleapis.com/icon?family=Material+Icons"; */
+@import "https://cdn.com/google/google-material-icons/icon.css";
+@import "https://vectoricons.com/typefaces/css/?display=swap&family=Euclid+Circular+B";
+@import "https://vectoricons.com/vicons/css/vicons.css";
+
+:root{
+
+  --ff0:"Euclid Circular B";
+
+  --fs-3:8px;
+  --fs-2:10px;
+  --fs-1:12px;
+  --fs0:14px;
+  --fs1:16px;
+  --fs2:18px;
+  --fs3:20px;
+  --fs4:22px;
+  --fs5:24px;
+
+  --c_w:white;
+  --c_b:black;
+  --c_t:transparent;
+
+}
+
+html{ -webkit-tap-highlight-color:transparent; }
+
+body{ margin:0; }
+
+
+nav{
+  height:64px;
+  display:flex;
+  flex-direction:row;
+  padding:8px 32px;
+  box-sizing:border-box;
+
+  position:fixed;
+  top:0;
+  right:0;
+  z-index:10;
+}
+
+nav > .btn{
+  user-select:none;
+  outline:none;
+  cursor: pointer;
+  height:48px;
+  width:48px;
+  font-size:var(--fs3);
+  background-color:var(--c_t);
+  color:var(--c_f);
+  border:none;
+  box-sizing:border-box;
+}
+
+#historyBtn{
+  display:none;
+}
+
+#historyBtn.is_active{
+  color:var(--c_s);
+}
+
+#darkModeBtn[value="light"]{
+  color:var(--c_yellow);
+}
+
+
+main{
+  background-color:var(--c_p);
+  font-family:var(--ff0);
+  font-size:var(--fs0);
+  color:var(--c_f);
+}
+
+.calc_block{
+  height:100vh;
+  width:calc(100% - 320px);
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  gap:8px;
+}
+
+.calc_block > div{
+  width:280px;
+}
+
+.calc_block .expression,
+.calc_block .result{
+  user-select: none;
+  text-align:right;
+  letter-spacing:1px;
+}
+
+.calc_block .expression,
+.history_block > div > span:first-child{
+  height:var(--fs0);
+  font-size:var(--fs0);
+  line-height:var(--fs0);
+}
+
+.calc_block .expression > i,
+.history_block > div > span:first-child > i{
+  font-size:var(--fs-1);
+  line-height:var(--fs0);
+}
+
+.calc_block .result,
+.history_block > div > span:last-child{
+  height:var(--fs5);
+  font-size:var(--fs3);
+  line-height:var(--fs5);
+  font-weight:500;
+}
+
+.calc_block .keypad{
+  display:grid;
+  grid-template:repeat(5, 64px) / repeat(4, 64px);
+  place-content:center;
+  place-items:center;
+  gap:8px;
+  box-sizing:border-box;
+}
+
+.calc_block .keypad > button{
+  user-select:none;
+  outline:none;
+  cursor:pointer;
+  height:100%;
+  width:100%;
+  background-color:var(--c_0);
+  color:var(--c_f);
+  font-family:var(--ff0);
+  font-size:var(--fs1);
+  border:none;
+  transition:background-color 350ms ease-in-out;
+}
+
+.calc_block .keypad > button:active{
+  background-color:var(--c_f);
+  color:var(--c_0);
+}
+
+.calc_block .keypad > button:nth-child(4n){
+  background-color:var(--c_3);
+  font-size:var(--fs2);
+  color:var(--c_s);
+}
+
+.calc_block .keypad > button:nth-child(4n):active{
+  background-color:var(--c_s);
+  color:var(--c_3);
+}
+
+.calc_block .keypad > button[name="_Delete"]{
+  color:var(--c_red);
+}
+
+.calc_block .keypad > button[name="_Delete"]:active{
+  background-color:var(--c_red);
+  color:var(--c_0);
+}
+
+.calc_block .keypad > button[name="_Enter"]{
+  background-color:var(--c_s);
+  color:var(--c_w);
+}
+
+.calc_block .keypad > button[name="_Enter"]:active{
+  background-color:var(--c_w);
+  color:var(--c_s);
+}
+
+.history_block{
+  height:100vh;
+  width:320px;
+  background-color:var(--c_0);
+  padding:64px 16px 16px;
+  box-sizing:border-box;
+  overflow-x:hidden;
+  overflow-y:scroll;
+
+  position:fixed;
+  bottom:0;
+  right:0;
+}
+
+.history_block::-webkit-scrollbar{
+  width:4px;
+  background-color:var(--c_0);
+}
+
+.history_block::-webkit-scrollbar-thumb{
+  background-color:var(--c_1);
+}
+
+.history_block > h1{
+  all:unset;
+  user-select:none;
+  width:320px;
+  height:64px;
+  padding:8px 32px;
+  font-size:var(--fs3);
+  line-height:48px;
+  background-color:var(--c_0);
+  box-sizing: border-box;
+  
+  position:fixed;
+  top:0;
+  right:0;
+}
+
+.history_block > div{
+  user-select:none;
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+  text-align:right;
+  border-top:1px solid var(--c_1);
+  padding:8px 0px;
+}
+
+.history_block > div:first-child{
+  border-top:none;
+}
+
+
+@media screen and (min-width:320px) and (max-width:480px){
+
+  nav{
+    padding:8px;
+  }
+
+  #historyBtn{
+    display:block;
+  }
+  
+  .calc_block{
+    width:100%;
+    justify-content:flex-end;
+    box-sizing:border-box;
+    overflow:hidden;
+  }
+
+  .calc_block > div{
+    width:100%;
+    padding:0px 16px;
+    box-sizing:border-box;
+  }
+
+  .calc_block .expression,
+  .history_block > div > span:first-child{
+    height:var(--fs1);
+    font-size:var(--fs1);
+    line-height:var(--fs1);
+  }
+
+  .calc_block .expression > i,
+  .history_block > div > span:first-child > i{
+    font-size:var(--fs0);
+  }
+
+  .calc_block .result,
+  .history_block > div > span:last-child{
+    height:var(--fs4);
+    font-size:var(--fs4);
+    line-height:var(--fs4);
+  }
+
+  .calc_block .keypad{
+    height:calc(8px * 64);
+    background-color:var(--c_0);
+    grid-template: repeat(5, calc(100% / 5)) / repeat(4, calc(100% / 4));
+    padding:0;
+    gap:0;
+    transition:bottom 350ms linear;
+    
+    position:relative;
+    bottom:0px;
+    z-index:1;
+  }
+
+  .calc_block .keypad.is_down{
+    bottom:calc(8px * -64);
+  }
+
+  .calc_block .keypad > button{
+    font-size:var(--fs2);
+  }
+
+  .calc_block .keypad > button:nth-child(4n){
+    font-size:var(--fs3);
+  }
+
+  .history_block{
+    height:calc(8px * 64);
+    width:100%;
+    padding:16px;
+  }
+
+  .history_block > h1{
+    display:none;
+  }
+
+
+}

@@ -1,0 +1,22 @@
+{
+    "name":"Calc",
+    "short_name":"Calc",
+    "description":"Basic calculator",
+    "background_color":"#ebebeb",
+    "theme_color":"#ebebeb",
+    "display":"standalone",
+    "orientation":"portrait",
+    "start_url":"https://app.com/calc/",
+    "icons":[
+        {
+            "src":"144.png",
+            "type":"image/png",
+            "sizes":"144x144"
+        },
+        {
+            "src":"512.png",
+            "type":"image/png",
+            "sizes":"512x512"
+        }
+    ]
+}
